@@ -1,0 +1,21 @@
+.custom-logo {
+	height:auto;
+  width: 200px;
+}
+.
+.navbar-collapse{
+  justify-content: flex-end !important;
+}
+.headerImage{
+    width: 100vw;
+    height: 90vh;
+    overflow-y: hidden;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.headerImage h1{
+  color: white;
+}
