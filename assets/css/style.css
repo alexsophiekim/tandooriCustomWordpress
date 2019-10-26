@@ -18,3 +18,6 @@
 .headerImage h1{
   color: white;
 }
+.aboutBg{
+  background-color: rgba(248, 222, 126, 0.5);
+}
