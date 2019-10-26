@@ -19,3 +19,34 @@ function tandooriLogo() {
  add_theme_support( 'custom-logo', $defaults );
 }
 add_action( 'after_setup_theme', 'tandooriLogo' );
+
+
+function addCustomMenus_tandoori(){
+  add_theme_support('menus');
+  register_nav_menus( array(
+    'top_nav' => __('Top Menu'),
+    'foot_nav' => __('Footer Menu'),
+    'side_nav' => __('Side Menu')
+  ));
+}
+
+add_action('after_setup_theme', 'addCustomMenus_tandoori');
+
+register_default_headers(array(
+    'defaultImage' => array(
+        'url' => get_template_directory_uri() . '/assets/images/topImg.jpg',
+        'thumbnail_url' => get_template_directory_uri() . '/assets/images/topImg.jpg',
+        'description' => __('The default image for the custom header.', 'customTandoori')
+    )
+));
+function register_navwalker(){
+	require_once get_template_directory() . '/class-wp-bootstrap-navwalker.php';
+}
+add_action( 'after_setup_theme', 'register_navwalker' );
+$customHeaderDefaults = array(
+    'width' => 1280,
+	  'height' => 720,
+    'default-image' => get_template_directory_uri() . '/assets/images/topImg.jpg'
+);
+add_theme_support('custom-header', $customHeaderDefaults);
+add_theme_support('wp-block-styles');

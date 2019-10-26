@@ -7,41 +7,30 @@
     <?php wp_head(); ?>
   </head>
   <body>
+    <h1>header</h1>
+    <?php if(has_nav_menu('top-nav')): ?>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#">
+      <a class="navbar-brand" href="<?php bloginfo('url'); ?>">
       <?php if ( function_exists( 'the_custom_logo' ) ): ?>
-        <?php  the_custom_logo(); ?>
-        <img src="" alt=""><?php else: ?> <?php echo bloginfo('name'); ?> <?php endif; ?>
+          <?php  the_custom_logo(); ?>
+        <?php else: ?>
+          <?php echo get_bloginfo('name'); ?>
+      <?php endif; ?>
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Menu
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">Meals</a>
-              <a class="dropdown-item" href="#">Snecks</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Desserts</a>
-            </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Order</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Contact</a>
-          </li>
-        </ul>
+        <?php wp_nav_menu(array(
+          'theme_loation'     => 'top_nav',
+          'depth'             => 2,
+          'container'         => 'div',
+          'container_class'   => 'collapse navbar-collapse',
+          'menu_class'        => 'nav navbar-nav',
+          'fallback_cb'       => 'WP_Bootstrap_Navwalker::fallback',
+          'walker'            => new WP_Bootstrap_Navwalker(),
+        )); ?>
       </div>
     </nav>
+  <?php endif; ?>
