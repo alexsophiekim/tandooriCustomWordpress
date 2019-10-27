@@ -1,27 +1,52 @@
 <?php get_header(); ?>
-
 <div class="container">
   <div class="row">
-    <div class="col col-2">
-        <h1 class="h4 welcome90">ABOUT</h1>
-    </div>
-    <div class="col col-10">
+    <div class="col col-12">
       <div class="row">
+        <?php if(has_nav_menu('side_nav')): ?>
+               <div class="col-3">
+                   <div class="card h-100">
+                       <?php wp_nav_menu( array(
+                           'theme_location' => 'side_nav',
+                           'menu_class' => 'list-group list-group-flush',
+                           'container' => '',
+                           'menu_id' => 'sideNav'
+                       )); ?>
+                   </div>
+               </div>
+           <?php endif; ?>
           <?php if(have_posts()): ?>
           <?php while (have_posts()): the_post();  ?>
-          <div class="col-3">
-            <?php if (has_post_thumbnail()): ?>
-              <div class="card" style="width: 10rem;">
-                <?php the_post_thumbnail('thumbnail'); ?>
-              <?php endif; ?>
-                <div class="card-body">
-                  <p class="card-text"><?php the_content(); ?></p>
-                  <?php if(!is_singular() ): ?>
-                      <button class="btn btn-primary btn-block">ORDER</button>
-                  <?php endif; ?>
-                </div>
-              </div>
+          <div class="col-9">
+            <p><?php the_title(); ?></p>
 
+            <div class="card-body">
+              <div class="row">
+                  <?php if(has_post_thumbnail()): ?>
+                      <?php if( is_home() ): ?>
+                          <div class="col-12 col-md-3">
+                              <?php the_post_thumbnail('medium', ['class' => 'img-fluid']); ?>
+                          </div>
+                      <?php else: ?>
+                          <div class="col-12 text-center mb-5">
+                              <?php the_post_thumbnail('large', ['class' => 'img-fluid']); ?>
+                          </div>
+                      <?php endif; ?>
+                  <?php endif; ?>
+                  <div class="col">
+                      <div>
+                          <?php if( is_home() ): ?>
+                              <?php the_excerpt() ; ?>
+                          <?php else: ?>
+                              <?php the_content(); ?>
+                          <?php endif; ?>
+                      </div>
+                      <?php if( !is_singular() ): ?>
+                          <a href="<?php the_permalink(); ?>" class="btn btn-primary">Order</a>
+                      <?php endif; ?>
+                  </div>
+              </div>
+          </div>
           </div>
           <?php endwhile; ?>
         <?php endif; ?>

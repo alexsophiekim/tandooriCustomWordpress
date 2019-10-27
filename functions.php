@@ -14,6 +14,9 @@ function tandooriLogo() {
 }
 add_action('after_setup_theme', 'tandooriLogo');
 
+add_image_size('single-post-thumbnail', 400, 300);
+
+
 function addCustomMenus_tandoori(){
   add_theme_support('menus');
   register_nav_menus( array(

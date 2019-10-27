@@ -1,5 +1,4 @@
 <?php get_header(); ?>
-
   <div class="row">
     <div class="col col-2 bg-warning text-center">
         <h1 class="h4 my-2">ABOUT</h1>
@@ -12,5 +11,4 @@
       <?php endif; ?>
     </div>
   </div>
-
 <?php get_footer(); ?>
