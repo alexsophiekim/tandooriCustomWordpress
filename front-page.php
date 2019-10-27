@@ -12,8 +12,8 @@
       <div class="container-fluid p-0">
           <div class="headerImage" style="background-image:url(<?php echo get_header_image(); ?>)  ;background-size: cover;">
             <div class="flex">
-              <div class="logoBig text-center">
-                   <?php  the_custom_logo('tandooriLogo'); ?>
+              <div class="logoBig">
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo.png" alt="">
               </div>
               <h1 class="display-3 inline-block"><?php echo get_bloginfo('name'); ?></h1>
               <div class="btnSet text-center">

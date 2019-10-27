@@ -21,3 +21,8 @@
 .aboutBg{
   background-color: rgba(248, 222, 126, 0.5);
 }
+.logoBig{
+  position: absolute !important;
+  top: 10%;
+  transform: translateX(15%);
+}
