@@ -26,3 +26,7 @@
   top: 10%;
   transform: translateX(15%);
 }
+.navAlign{
+	display: flex;
+	justify-content: flex-end !important;
+}

@@ -20,7 +20,7 @@
               'theme_location'    => 'top_nav',
               'depth'             => 2,
               'container'         => 'div',
-              'container_class'   => 'collapse navbar-collapse',
+              'container_class'   => 'collapse navbar-collapse navAlign',
               'container_id'      => 'bs-example-navbar-collapse-1',
               'menu_class'        => 'nav navbar-nav navbar-right',
               'fallback_cb'       => 'WP_Bootstrap_Navwalker::fallback',
